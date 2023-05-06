@@ -1,10 +1,11 @@
 import React from "react";
 import Header from "parts/Header.js";
-import Aside from "parts/Aside";
+import Aside from "parts/Sitemap";
 import Footer from "parts/Footer";
-import Clients from "parts/Clients";
 import Breadcrumb from "components/Breadcrumb";
+import ProductDetails from "parts/Details/ProductDetails";
 import { useParams } from "react-router-dom";
+import Suggestions from "parts/Details/Suggestions";
 
 export default function Details() {
   const { categoryID, productID } = useParams();
@@ -21,7 +22,8 @@ export default function Details() {
           },
         ]}
       />
-      <Clients />
+      <ProductDetails />
+      <Suggestions />
       <Aside />
       <Footer />
     </>
