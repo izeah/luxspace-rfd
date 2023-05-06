@@ -3,14 +3,14 @@ import Header from "parts/Header.js";
 import Hero from "parts/HomePage/Hero.js";
 import BrowseTheRoom from "parts/HomePage/BrowseTheRoom";
 import JustArrived from "parts/HomePage/JustArrived";
-import Aside from "parts/HomePage/Aside";
+import Aside from "parts/Aside";
 import Footer from "parts/Footer";
-import Clients from "parts/HomePage/Clients";
+import Clients from "parts/Clients";
 
-export default function HomePage(Props) {
+export default function Homepage(props) {
   return (
     <>
-      <Header />
+      <Header theme="white" position="absolute" />
       <Hero />
       <BrowseTheRoom />
       <JustArrived />

@@ -18,7 +18,7 @@ export default function BrowseTheRoom() {
           >
             <div className="card-shadow rounded-xl">
               <img
-                src="images/content/image-catalog-1.png"
+                src="/images/content/image-catalog-1.png"
                 alt=""
                 className="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl"
               />
@@ -32,7 +32,7 @@ export default function BrowseTheRoom() {
           <div className="relative col-span-9 row-span-1 md:col-span-2 md:row-span-2 card">
             <div className="card-shadow rounded-xl">
               <img
-                src="images/content/image-catalog-3.png"
+                src="/images/content/image-catalog-3.png"
                 alt=""
                 className="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl"
               />
@@ -46,7 +46,7 @@ export default function BrowseTheRoom() {
           <div className="relative col-span-9 row-span-1 md:col-span-3 md:row-span-2 card">
             <div className="card-shadow rounded-xl">
               <img
-                src="images/content/image-catalog-4.png"
+                src="/images/content/image-catalog-4.png"
                 alt=""
                 className="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl"
               />
@@ -60,7 +60,7 @@ export default function BrowseTheRoom() {
           <div className="relative col-span-9 row-span-1 md:col-span-4 card">
             <div className="card-shadow rounded-xl">
               <img
-                src="./images/content/image-catalog-2.png"
+                src=".//images/content/image-catalog-2.png"
                 alt=""
                 className="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl"
               />
