@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "parts/Header.js";
-import Aside from "parts/Sitemap";
+import Sitemap from "parts/Sitemap";
 import Footer from "parts/Footer";
 import Breadcrumb from "components/Breadcrumb";
 import ProductDetails from "parts/Details/ProductDetails";
@@ -24,7 +24,7 @@ export default function Details() {
       />
       <ProductDetails />
       <Suggestions />
-      <Aside />
+      <Sitemap />
       <Footer />
     </>
   );
