@@ -7,9 +7,11 @@ import Aside from "parts/Sitemap";
 import Footer from "parts/Footer";
 import Clients from "parts/Homepage/Clients";
 import useScrollAnchor from "helpers/hooks/useScrollAnchor";
+import useModalDOM from "helpers/hooks/useModalDOM";
 
 export default function Homepage(props) {
   useScrollAnchor();
+  useModalDOM();
 
   return (
     <>
