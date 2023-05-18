@@ -55,10 +55,10 @@ function Loading({ ratio = {} }) {
               borderRadius={"9999px"}
               duration={0.75}
             >
-              <div className="w-24 h-3 mt-1">
+              <div className="w-32 h-5 mt-1">
                 <Skeleton />
               </div>
-              <div className="w-24 h-3 mt-3">
+              <div className="w-32 h-5 mt-1">
                 <Skeleton />
               </div>
             </SkeletonTheme>
