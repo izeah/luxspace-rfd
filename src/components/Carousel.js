@@ -140,15 +140,15 @@ export default function Carousel({ children, refContainer }) {
 
     refForwardDragHandler.onmousedown = onDragStart;
     refForwardDragHandler.addEventListener("touchstart", onDragStart);
-    refForwardDragHandler.addEventListener("touchmove", onDragEnd);
-    refForwardDragHandler.addEventListener("touchstart", onDragMove);
+    refForwardDragHandler.addEventListener("touchmove", onDragMove);
+    refForwardDragHandler.addEventListener("touchend", onDragEnd);
     refForwardDragHandler.addEventListener("click", onClick);
     refForwardDragHandler.addEventListener("transitionend", fnCheckIndex);
 
     return () => {
       refForwardDragHandler.removeEventListener("touchstart", onDragStart);
-      refForwardDragHandler.removeEventListener("touchmove", onDragEnd);
-      refForwardDragHandler.removeEventListener("touchstart", onDragMove);
+      refForwardDragHandler.removeEventListener("touchmove", onDragMove);
+      refForwardDragHandler.removeEventListener("touchend", onDragEnd);
       refForwardDragHandler.removeEventListener("click", onClick);
       refForwardDragHandler.removeEventListener("transitionend", fnCheckIndex);
     };
@@ -163,7 +163,7 @@ export default function Carousel({ children, refContainer }) {
   return (
     <div
       ref={refDragHandler}
-      className="flex -mx-4 flex-row relative"
+      className="flex -ml-4 md:-ml-3 flex-row relative"
       style={{ paddingLeft: containerClientRect?.left - 16 || 0 }}
     >
       {children}

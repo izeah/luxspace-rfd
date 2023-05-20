@@ -21,7 +21,7 @@ function Loading() {
             borderRadius={"9999px"}
             duration={0.75}
           >
-            <div className="h-5 mt-4" style={{ width: "287px" }}>
+            <div className="h-5 mt-5" style={{ width: "287px" }}>
               <Skeleton />
             </div>
             <div className="h-5 mt-1" style={{ width: "287px" }}>
@@ -54,11 +54,10 @@ export default function JustArrived() {
         <div className="container mx-auto" ref={refContainer}></div>
         {isLoading ? (
           <div
-            className="flex flex-row relative"
+            className="flex flex-row relative -ml-4 md:-ml-[33px]"
             style={{
               paddingLeft:
                 refContainer.current?.getBoundingClientRect?.()?.left - 16 || 0,
-              marginLeft: "-37px",
             }}
           >
             <Loading />
