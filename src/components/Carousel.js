@@ -163,8 +163,8 @@ export default function Carousel({ children, refContainer }) {
   return (
     <div
       ref={refDragHandler}
-      className="flex -ml-4 md:-ml-3 flex-row relative"
-      style={{ paddingLeft: containerClientRect?.left - 16 || 0 }}
+      className="flex -ml-4 md:-ml-[7px] flex-row relative"
+      style={{ paddingLeft: containerClientRect?.left - 20 || 0 }}
     >
       {children}
     </div>

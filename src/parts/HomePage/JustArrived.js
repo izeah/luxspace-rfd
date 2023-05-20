@@ -54,10 +54,10 @@ export default function JustArrived() {
         <div className="container mx-auto" ref={refContainer}></div>
         {isLoading ? (
           <div
-            className="flex flex-row relative -ml-4 md:-ml-[33px]"
+            className="flex flex-row relative -ml-4 md:-ml-[28px]"
             style={{
               paddingLeft:
-                refContainer.current?.getBoundingClientRect?.()?.left - 16 || 0,
+                refContainer.current?.getBoundingClientRect?.()?.left - 20 || 0,
             }}
           >
             <Loading />
