@@ -70,14 +70,11 @@ function Loading({ ratio = {} }) {
 }
 
 export default function BrowseTheRoom() {
-  const { data, status, error, run, isLoading } = useAsync({
-    data: { username: "" },
-  });
-  useEffect(() => {
-    run(fetchData({ url: "/api/v1/categories?page=1&page_size=4" }));
-  }, [run]);
+  const { data, run, isLoading } = useAsync();
 
-  console.log(data, status, error);
+  useEffect(() => {
+    run(fetchData({ url: "/api/v1/categories" }));
+  }, [run]);
 
   const ratioClassNames = {
     wrapper: {
@@ -114,7 +111,7 @@ export default function BrowseTheRoom() {
           {isLoading ? (
             <Loading ratio={ratioClassNames} />
           ) : (
-            data?.data?.map?.((item, index) => {
+            data?.map?.((item, index) => {
               return (
                 <div
                   key={item.id}
@@ -125,7 +122,7 @@ export default function BrowseTheRoom() {
                 >
                   <div className="card-shadow rounded-xl">
                     <img
-                      src={`/images/content/${item.image_url}`}
+                      src={`/images/content/${item.imageUrl}`}
                       alt={item.name}
                       className="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl"
                     />

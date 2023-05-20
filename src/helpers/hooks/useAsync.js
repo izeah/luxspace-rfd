@@ -33,7 +33,7 @@ export default function useAsync(initialState) {
         (error) => {
           safeSetState({
             status: "rejected",
-            error: JSON.parse(error.message),
+            error: error?.message,
           });
         }
       );
