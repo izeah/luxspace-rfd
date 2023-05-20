@@ -1,4 +1,4 @@
-import fetchData from "helpers/fetch";
+import fetchData from "helpers/fetchData";
 import useAsync from "helpers/hooks/useAsync";
 import React, { useEffect } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";

@@ -1,8 +1,37 @@
 import Carousel from "components/Carousel";
-import fetchData from "helpers/fetch";
+import fetchData from "helpers/fetchData";
 import useAsync from "helpers/hooks/useAsync";
 import React, { useEffect, useRef } from "react";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { Link } from "react-router-dom";
+
+function Loading() {
+  return Array(6)
+    .fill()
+    .map((_, index) => {
+      return (
+        <div className="px-4 relative card group" key={index}>
+          <div
+            className="rounded-xl bg-gray-300 overflow-hidden card-shadow relative"
+            style={{ width: "287px", height: "386px" }}
+          ></div>
+          <SkeletonTheme
+            baseColor="rgb(240, 240, 240, 1)"
+            highlightColor="rgb(255, 255, 255, 1)"
+            borderRadius={"9999px"}
+            duration={0.75}
+          >
+            <div className="h-5 mt-4" style={{ width: "287px" }}>
+              <Skeleton />
+            </div>
+            <div className="h-5 mt-1" style={{ width: "287px" }}>
+              <Skeleton />
+            </div>
+          </SkeletonTheme>
+        </div>
+      );
+    });
+}
 
 export default function JustArrived() {
   const { data, error, run, isLoading } = useAsync();
@@ -25,13 +54,14 @@ export default function JustArrived() {
         <div className="container mx-auto" ref={refContainer}></div>
         {isLoading ? (
           <div
-            className="flex -mx-4 flex-row relative"
+            className="flex flex-row relative"
             style={{
               paddingLeft:
                 refContainer.current?.getBoundingClientRect?.()?.left - 16 || 0,
+              marginLeft: "-37px",
             }}
           >
-            Loading
+            <Loading />
           </div>
         ) : error ? (
           JSON.stringify(error)
