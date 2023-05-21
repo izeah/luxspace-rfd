@@ -1,83 +1,45 @@
 import React from "react";
+import { useState } from "react";
+import HtmlParser from "react-html-parser";
 import { Link } from "react-router-dom";
 
-export default function ProductDetails() {
+export default function ProductDetails({ data }) {
+  const [mainImage, setMainImage] = useState(() => data?.imageUrls?.[0] || "");
   return (
     <section className="container mx-auto">
       <div className="flex flex-wrap my-4 md:my-12">
         <div className="w-full md:hidden px-4">
-          <h2 className="text-5xl font-semibold">Chair Thatty</h2>
-          <span className="text-xl">IDR 12.000.000</span>
+          <h2 className="text-5xl font-semibold">{data?.name}</h2>
+          <span className="text-xl">IDR {data?.price}</span>
         </div>
         <div className="flex-1">
           <div className="slider">
             <div className="thumbnail">
-              <div className="px-2">
+              {data?.imageUrls?.map((item) => (
                 <div
-                  className="item selected"
-                  data-img="/images/content/showcase-1.front.jpg"
+                  className="px-2"
+                  key={item}
+                  onClick={() => setMainImage(item)}
                 >
-                  <img
-                    src="/images/content/showcase-1.front.jpg"
-                    alt="front"
-                    className="object-cover w-full h-full rounded-lg"
-                  />
+                  <div
+                    className={"item ".concat(
+                      mainImage === item ? "selected" : ""
+                    )}
+                  >
+                    <img
+                      src={item}
+                      alt={item}
+                      className="object-cover w-full h-full rounded-lg"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="px-2">
-                <div
-                  className="item"
-                  data-img="/images/content/showcase-1.back.jpg"
-                >
-                  <img
-                    src="/images/content/showcase-1.back.jpg"
-                    alt="back"
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-              </div>
-              <div className="px-2">
-                <div
-                  className="item"
-                  data-img="/images/content/showcase-1.rear.jpg"
-                >
-                  <img
-                    src="/images/content/showcase-1.rear.jpg"
-                    alt="rear"
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-              </div>
-              <div className="px-2">
-                <div
-                  className="item"
-                  data-img="/images/content/showcase-1.side.jpg"
-                >
-                  <img
-                    src="/images/content/showcase-1.side.jpg"
-                    alt="side"
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-              </div>
-              <div className="px-2">
-                <div
-                  className="item"
-                  data-img="/images/content/showcase-1.top.jpg"
-                >
-                  <img
-                    src="/images/content/showcase-1.top.jpg"
-                    alt="top"
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-              </div>
+              ))}
             </div>
             <div className="preview">
               <div className="item rounded-lg h-full overflow-hidden">
                 <img
-                  src="/images/content/showcase-1.front.jpg"
-                  alt="front"
+                  src={mainImage}
+                  alt={mainImage}
                   className="object-cover w-full h-full rounded-lg"
                 />
               </div>
@@ -85,8 +47,8 @@ export default function ProductDetails() {
           </div>
         </div>
         <div className="flex-1 px-4 md:p-6">
-          <h2 className="text-5xl font-semibold">Chair Thatty</h2>
-          <p className="text-xl">IDR 12.000.000</p>
+          <h2 className="text-5xl font-semibold">{data?.name}</h2>
+          <p className="text-xl">IDR {data?.price}</p>
 
           <Link
             to="cart.html"
@@ -109,16 +71,7 @@ export default function ProductDetails() {
           <hr className="my-8" />
 
           <h6 className="text-xl font-semibold mb-4">About the product</h6>
-          <p className="text-xl leading-7 mb-6">
-            Tailored to a level of perfection synonymous with that of a Savile
-            Row suit and with understated quality in the detail, Jetty has been
-            influenced by timeless 1950s style.
-          </p>
-          <p className="text-xl leading-7">
-            Providing a subtle nod to the past, Jetty also provides a perfect
-            solution for the way we work today. A comprehensive product family,
-            Jetty features a variety of elegant chairs and sofas.
-          </p>
+          {data?.description ? HtmlParser(data?.description) : ""}
         </div>
       </div>
     </section>
