@@ -68,7 +68,7 @@ export default function JustArrived() {
           "No Product Found"
         ) : (
           <Carousel refContainer={refContainer}>
-            {data?.map((item, index) => {
+            {data?.map?.((item, index) => {
               return (
                 <div
                   className="px-4 relative card group"

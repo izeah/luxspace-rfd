@@ -15,7 +15,7 @@ export default function ProductDetails({ data }) {
         <div className="flex-1">
           <div className="slider">
             <div className="thumbnail">
-              {data?.imageUrls?.map((item) => (
+              {data?.imageUrls?.map?.((item) => (
                 <div
                   className="px-2"
                   key={item}
