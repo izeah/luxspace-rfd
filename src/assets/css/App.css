@@ -124,7 +124,7 @@ ul.breadcrumb li:last-child a {
 }
 
 a.cart svg g circle.dot {
-  @apply hidden;
+  @apply hidden text-pink-400;
 }
 
 a.cart.cart-filled svg g circle.dot {
