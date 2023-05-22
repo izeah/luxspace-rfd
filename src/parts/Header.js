@@ -123,7 +123,7 @@ export default function Header({ theme, position }) {
                       : "",
                     isCartChanged ? "animate-bounce" : "",
                   ].join(" ")}
-                  href="cart.html"
+                  to="/cart"
                 >
                   <IconCart />
                 </Link>

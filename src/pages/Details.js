@@ -26,7 +26,7 @@ function LoadingProductDetails() {
                   <div className="px-4 relative card group" key={index}>
                     <div
                       className="rounded-xl item bg-gray-300 animate-pulse"
-                      style={{ width: 106, height: 106 }}
+                      style={{ width: "106px", height: "106px" }}
                     ></div>
                   </div>
                 ))}
@@ -81,7 +81,7 @@ function LoadingSuggestions() {
                     <div className="rounded-xl overflow-hidden card-shadow w-full h-36">
                       <div
                         className="bg-gray-300 animate-pulse rounded-lg h-full overflow-hidden"
-                        style={{ width: 287, height: 150 }}
+                        style={{ width: "287px", height: "150px" }}
                       ></div>
                     </div>
                     <div className="w-56 h-4 mt-6 bg-gray-300 animate-pulse rounded-full"></div>
