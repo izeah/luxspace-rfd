@@ -5,21 +5,24 @@ import Details from "pages/Details";
 import Cart from "pages/Cart";
 import Congratulations from "pages/Congratulations";
 import ErrorPage from "pages/ErrorPage";
+import Provider from "helpers/hooks/useGlobalContext";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" Component={Homepage} />
-        <Route
-          path="/categories/:categoryID/products/:productID"
-          Component={Details}
-        />
-        <Route path="/cart" Component={Cart} />
-        <Route path="/congratulations" Component={Congratulations} />
-        <Route path="*" Component={ErrorPage} />
-      </Routes>
-    </Router>
+    <Provider>
+      <Router>
+        <Routes>
+          <Route path="/" Component={Homepage} />
+          <Route
+            path="/categories/:categoryID/products/:productID"
+            Component={Details}
+          />
+          <Route path="/cart" Component={Cart} />
+          <Route path="/congratulations" Component={Congratulations} />
+          <Route path="*" Component={ErrorPage} />
+        </Routes>
+      </Router>
+    </Provider>
   );
 }
 
