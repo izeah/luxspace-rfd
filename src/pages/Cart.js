@@ -5,8 +5,11 @@ import Breadcrumb from "components/Breadcrumb";
 import Sitemap from "parts/Sitemap";
 import ShoppingCart from "parts/Cart/ShoppingCart";
 import ShippingDetails from "parts/Cart/ShippingDetails";
+import useScrollToTop from "helpers/hooks/useScrollToTop";
 
 export default function Cart() {
+  useScrollToTop();
+
   return (
     <>
       <Header theme="black" />

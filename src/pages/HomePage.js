@@ -8,10 +8,12 @@ import Footer from "parts/Footer";
 import Clients from "parts/Homepage/Clients";
 import useScrollAnchor from "helpers/hooks/useScrollAnchor";
 import useModalDOM from "helpers/hooks/useModalDOM";
+import useScrollToTop from "helpers/hooks/useScrollToTop";
 
 export default function Homepage(props) {
   useScrollAnchor();
   useModalDOM();
+  useScrollToTop();
 
   return (
     <>

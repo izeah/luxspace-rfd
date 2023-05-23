@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import Suggestions from "parts/Details/Suggestions";
 import useAsync from "helpers/hooks/useAsync";
 import getData from "helpers/fetchData/get";
+import useScrollToTop from "helpers/hooks/useScrollToTop";
 
 function LoadingProductDetails() {
   return (
@@ -103,6 +104,8 @@ export default function Details() {
   useEffect(() => {
     run(getData({ url: `/api/v1/products/${productID}` }));
   }, [run, productID]);
+
+  useScrollToTop();
 
   return (
     <>
