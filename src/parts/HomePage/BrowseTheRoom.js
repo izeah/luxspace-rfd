@@ -1,4 +1,4 @@
-import fetchData from "helpers/fetchData";
+import getData from "helpers/fetchData/get";
 import useAsync from "helpers/hooks/useAsync";
 import React, { useEffect } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
@@ -73,7 +73,7 @@ export default function BrowseTheRoom() {
   const { data, run, isLoading } = useAsync();
 
   useEffect(() => {
-    run(fetchData({ url: "/api/v1/categories" }));
+    run(getData({ url: "/api/v1/categories" }));
   }, [run]);
 
   const ratioClassNames = {

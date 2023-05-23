@@ -1,5 +1,5 @@
 import Carousel from "components/Carousel";
-import fetchData from "helpers/fetchData";
+import getData from "helpers/fetchData/get";
 import useAsync from "helpers/hooks/useAsync";
 import React, { useEffect, useRef } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
@@ -37,7 +37,7 @@ export default function JustArrived() {
   const { data, error, run, isLoading } = useAsync();
   const refContainer = useRef(null);
   useEffect(() => {
-    run(fetchData({ url: "/api/v1/products" }));
+    run(getData({ url: "/api/v1/products" }));
   }, [run]);
 
   return (

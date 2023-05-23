@@ -7,7 +7,7 @@ import ProductDetails from "parts/Details/ProductDetails";
 import { useParams } from "react-router-dom";
 import Suggestions from "parts/Details/Suggestions";
 import useAsync from "helpers/hooks/useAsync";
-import fetchData from "helpers/fetchData";
+import getData from "helpers/fetchData/get";
 
 function LoadingProductDetails() {
   return (
@@ -101,7 +101,7 @@ export default function Details() {
   const { data, isLoading, run } = useAsync();
 
   useEffect(() => {
-    run(fetchData({ url: `/api/v1/products/${productID}` }));
+    run(getData({ url: `/api/v1/products/${productID}` }));
   }, [run, productID]);
 
   return (
