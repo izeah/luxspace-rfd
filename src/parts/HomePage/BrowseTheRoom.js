@@ -1,5 +1,6 @@
 import getData from "helpers/fetchData/get";
 import useAsync from "helpers/hooks/useAsync";
+import "helpers/format/thousand";
 import React, { useEffect } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -134,7 +135,8 @@ export default function BrowseTheRoom() {
                   >
                     <h5 className="text-lg font-semibold">{item.name}</h5>
                     <span className="">
-                      {item.products} item{item.products > 1 ? "s" : ""}
+                      {item.products.thousand()} item
+                      {item.products > 1 ? "s" : ""}
                     </span>
                   </div>
                 </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import "helpers/format/currency";
 import { Link } from "react-router-dom";
 
 export default function Suggestions({ data }) {
@@ -28,7 +29,7 @@ export default function Suggestions({ data }) {
                     />
                   </div>
                   <h5 className="text-lg font-semibold mt-4">{item.name}</h5>
-                  <span className="">IDR {item.price}</span>
+                  <span className="">{item.price.currency()}</span>
                   <Link
                     to={`/categories/${item.categoryId}/products/${item.id}`}
                     className="stretched-link"
