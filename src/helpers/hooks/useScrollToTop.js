@@ -9,5 +9,5 @@ export default function useScrollToTop() {
       left: 0,
       behavior: "smooth",
     });
-  }, [location.pathname]);
+  }, [location.key]);
 }
