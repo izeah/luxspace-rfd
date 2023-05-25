@@ -9,6 +9,7 @@ import Suggestions from "parts/Details/Suggestions";
 import useAsync from "helpers/hooks/useAsync";
 import getData from "helpers/fetchData/get";
 import Documents from "parts/Documents";
+import ErrorMessage from "parts/ErrorMessage";
 
 function LoadingProductDetails() {
   return (
@@ -99,7 +100,7 @@ function LoadingSuggestions() {
 
 export default function Details() {
   const { categoryID, productID } = useParams();
-  const { data, isLoading, run } = useAsync();
+  const { data, isLoading, run, isError } = useAsync();
 
   useEffect(() => {
     run(getData({ url: `/api/v1/products/${productID}` }));
@@ -118,12 +119,24 @@ export default function Details() {
           },
         ]}
       />
-      {isLoading ? <LoadingProductDetails /> : <ProductDetails data={data} />}
-      {isLoading ? (
-        <LoadingSuggestions />
+
+      {isError ? (
+        <ErrorMessage />
       ) : (
-        <Suggestions data={data?.relatedProducts || []} />
+        <>
+          {isLoading ? (
+            <LoadingProductDetails />
+          ) : (
+            <ProductDetails data={data} />
+          )}
+          {isLoading ? (
+            <LoadingSuggestions />
+          ) : (
+            <Suggestions data={data?.relatedProducts || []} />
+          )}
+        </>
       )}
+
       <Sitemap />
       <Footer />
     </Documents>
