@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 import Suggestions from "parts/Details/Suggestions";
 import useAsync from "helpers/hooks/useAsync";
 import getData from "helpers/fetchData/get";
-import useScrollToTop from "helpers/hooks/useScrollToTop";
+import Documents from "parts/Documents";
 
 function LoadingProductDetails() {
   return (
@@ -105,10 +105,8 @@ export default function Details() {
     run(getData({ url: `/api/v1/products/${productID}` }));
   }, [run, productID]);
 
-  useScrollToTop();
-
   return (
-    <>
+    <Documents>
       <Header theme="black" />
       <Breadcrumb
         list={[
@@ -128,6 +126,6 @@ export default function Details() {
       )}
       <Sitemap />
       <Footer />
-    </>
+    </Documents>
   );
 }

@@ -5,13 +5,11 @@ import Breadcrumb from "components/Breadcrumb";
 import Sitemap from "parts/Sitemap";
 import ShoppingCart from "parts/Cart/ShoppingCart";
 import ShippingDetails from "parts/Cart/ShippingDetails";
-import useScrollToTop from "helpers/hooks/useScrollToTop";
+import Documents from "parts/Documents";
 
 export default function Cart() {
-  useScrollToTop();
-
   return (
-    <>
+    <Documents>
       <Header theme="black" />
       <Breadcrumb
         list={[
@@ -31,6 +29,6 @@ export default function Cart() {
 
       <Sitemap />
       <Footer />
-    </>
+    </Documents>
   );
 }
